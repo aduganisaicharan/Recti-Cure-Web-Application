@@ -22,16 +22,16 @@
  Keras
  Matplotlib
 
-#Working 
+# Working 
  Upload image : use interface to upload image of eye
  Analyze Image : VGG-19 model processes image and predict the presence of cataract
  View Results : receive real-time feedback.
 
-#Project Structure
+# Project Structure
  app.py contains the flask code that responsible for loading the model and passing the uploaded image to the model for prediction.
  static folder for files like css and javascript  for website design 
  templates folder has the html files related to website includes index.html, service.html, about.html, contact.html
 
-#Contributing
- We welcome contributions! If you would like to contribute, please fork the repository, create a new branch for your feature or bug fix, and submit a pull request.
+# Contributing
+ Welcome for contributions! If you would like to contribute, please fork the repository, create a new branch for your feature or bug fix, and submit a pull request.
 
