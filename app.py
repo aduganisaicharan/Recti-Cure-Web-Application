@@ -5,13 +5,13 @@ import numpy as np
 from keras.preprocessing import image
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
-
+# importing all the necessary libraries for code implementation
 
 app=Flask(__name__)
 
-model = load_model('vgg19.h5')
+model = load_model('vgg19.h5') # loading the saved deep learning model into the variable model 
 image_size = 224
-def model_predict(img_path):
+def model_predict(img_path): # this function is to load the given image and convert it into numerical array format comes under preprocessing image and passing this to model for prediction
     img=image.load_img("static/uploads/"+img_path,target_size=(image_size,image_size))
     x = image.img_to_array(img) # here
     x/=255.0
@@ -19,46 +19,47 @@ def model_predict(img_path):
     img_data = x
     a = model.predict(img_data)
     return a
-    
+# predicted value will be returned by the model  
 
-@app.route('/')
+@app.route('/') # by default the home page will be displayed when the server created on local host.
 def accessthesite():
-    return render_template('index.html')
-@app.route('/home')
+    return render_template('index.html') # used to display the index.html page 
+@app.route('/home')  # used to display the index.html page when we click on home button on website
 def home():
     return render_template('index.html')
-@app.route('/contact')
+@app.route('/contact') # used to display the contact.html page when we click on contact button on website
 def contactpage():
     return render_template('contact.html')
-@app.route('/about')
+@app.route('/about') # used to display the about.html page when we click on about button on website
 def aboutpage():
     return render_template('about.html')
-@app.route('/test')
+@app.route('/test') # used to display the service.html page when we click on test button on website
 def testpage():
     return render_template('service.html')
 
-@app.route('/predict',methods=['POST','GET'])
+@app.route('/predict',methods=['POST','GET']) # the posted request from the service.html page when we upload image and click submit is received over here
 def predict():
-    if 'imagefile' not in request.files:
+    # Check if the 'imagefile' key is present in the files part of the request
+    if 'imagefile' not in request.files:  # If 'imagefile' is not in request files, redirect back to the URL of the request
         return redirect(request.url)
-    file=request.files['imagefile']
-    if file.filename == '':
+    file=request.files['imagefile'] # put this imagefile into the file
+    if file.filename == '':     # Check if the file has a name
         return redirect(request.url)
     if file:
-        filename = secure_filename(file.filename)
-        upload_folder = 'static/uploads'
-        if not os.path.exists(upload_folder):
+        filename = secure_filename(file.filename)  # Securing the filename to avoid any security issues with file names
+        upload_folder = 'static/uploads'         # defining the upload folder where this file will be saved
+        if not os.path.exists(upload_folder):         # Check if the upload folder already exists, if not then create it
             os.makedirs(upload_folder)
 
-        file_path = os.path.join(upload_folder, filename)
+        file_path = os.path.join(upload_folder, filename)         # Craete the full path where the file will be saved
         file.save(file_path)
 
-        preds = model_predict(filename)[0][0]
+        preds = model_predict(filename)[0][0] # passed file to model_predict function
         if(preds>=0.90):
             predictn = "Eye is having Cataract"
         else:
             predictn = "Eye is Normal"
-        return render_template('service.html', predictn=predictn)
+        return render_template('service.html', predictn=predictn) # returning the result obtained to the service.html page 
 if __name__ == '__main__':
     app.run(debug=True)
 
