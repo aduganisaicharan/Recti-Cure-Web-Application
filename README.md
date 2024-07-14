@@ -35,3 +35,18 @@
 # Contributing
  Welcome for contributions! If you would like to contribute, please fork the repository, create a new branch for your feature or bug fix, and submit a pull request.
 
+# Project demo
+Home page :
+![image](https://github.com/user-attachments/assets/6cff8f4f-8764-4027-9019-98c9a8e0ac29)
+About page :
+![image](https://github.com/user-attachments/assets/80a61ca3-ef51-4358-bd59-fc43899c5984)
+Contact page :
+![image](https://github.com/user-attachments/assets/15b20f86-7b10-47be-91e6-96d255f8a260)
+Test page :
+![image](https://github.com/user-attachments/assets/a2735ef1-71e6-4fd8-9319-d73102bfdfcb)
+uploaded cataract effected eye image :
+![image](https://github.com/user-attachments/assets/5ad70ad6-2f8d-424a-8d39-1ca8e07d2586)
+uploaded normal eye image :
+![image](https://github.com/user-attachments/assets/3602a16f-1ccf-480e-87be-36a135f19e98)
+
+
