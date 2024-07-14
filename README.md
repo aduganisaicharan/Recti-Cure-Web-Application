@@ -33,7 +33,7 @@
  templates folder has the html files related to website includes index.html, service.html, about.html, contact.html
 
 # Contributing
- Welcome for contributions! If you would like to contribute, please fork the repository, create a new branch for your feature or bug fix, and submit a pull request.
+ Welcome for your contributions! If you would like to contribute, please fork the repository, create a new branch for your feature or bug fix, and submit a pull request.
 
 # Project demo
 Home page :
